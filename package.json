@@ -1,0 +1,26 @@
+{
+  "name": "my-v0-project",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "node app.js",
+    "start": "node app.js",
+    "test": "jest"
+  },
+  "type": "module",
+  "dependencies": {
+    "@jest/globals": "latest",
+    "bcryptjs": "latest",
+    "cors": "latest",
+    "dotenv": "latest",
+    "express": "latest",
+    "jsonwebtoken": "latest",
+    "mongoose": "latest",
+    "nodemon": "^3.1.9",
+    "redis": "latest",
+    "supertest": "latest"
+  },
+  "devDependencies": {
+    "typescript": "^5"
+  }
+}
