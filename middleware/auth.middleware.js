@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken"
-
-export const authenticate = (req, res, next) => {
+import User from "../models/user.model.js"
+export const authenticate = async(req, res, next) => {
   try {
     // Get token from header
     const authHeader = req.headers.authorization
@@ -13,6 +13,11 @@ export const authenticate = (req, res, next) => {
 
     // Verify token
     const decoded = jwt.verify(token, process.env.JWT_SECRET)
+
+    const user = await User.findById(decoded.id)
+    if (!user) {
+      return res.status(401).json({ message: "User no longer exists" })
+    }
 
     // Add user ID to request
     req.userId = decoded.id
